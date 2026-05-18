@@ -4,6 +4,10 @@ All notable changes to Accessible Arena.
 
 ## v1.3
 
+Duel:
+
+- Card info readout now surfaces chosen / named-card data. Cards that record a creature type (Cavern of Souls, Engineered Plague), a color (Iona, Shield of Emeria), or a card name (Pithing Needle, Meddling Mage, Cabal Therapy) display that pick in their on-card rules text for sighted players; the mod was dropping it. Arrow Down past rules text now reads "Chosen: Wizard" and "Named card: Cabal Therapy" sourced from `MtgCardInstance.LinkedInfoText` and `LinkedInfoTitleLocIds` via the same `IGreLocProvider` path the game's own `LinkedInfoTextParser` / `LinkedInfoTitleTextParser` use, so the resolved strings match what's rendered on the card face.
+
 Bug fixes:
 
 - Surveil browser no longer announces "moved to put on bottom" when you press Enter on a card. Surveil mills the chosen cards to the graveyard rather than putting them on the bottom of the library, but `GetZoneName` / `GetShortZoneName` were sharing the Scry phrasing. The bottom zone now reads as "Graveyard" for Surveil (announcements become "X moved to graveyard", "Graveyard: empty", etc.); Scry, Read Ahead, and Split keep their existing wording.
